@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitácora de Viaje · Inspiración e Influencia · Executive MBA UDESA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   TOKENS
+   ============================================ */
+:root {
+  --tk-indigo:   #3b35a8;
+  --tk-deep:     #2d2894;
+  --tk-magenta:  #8b3a8f;
+  --tk-coral:    #d4522a;
+  --tk-cyan:     #00bcd4;
+
+  --tk-grad:      linear-gradient(135deg, #3b35a8 0%, #8b3a8f 50%, #d4522a 100%);
+  --tk-grad-h:    linear-gradient(90deg, #3b35a8 0%, #d4522a 100%);
+  --tk-grad-soft: linear-gradient(135deg, rgba(59,53,168,.08) 0%, rgba(212,82,42,.04) 100%);
+
+  --tk-bg:    #f0eff5;
+  --tk-white: #ffffff;
+  --tk-card:  #ffffff;
+  --tk-ink:   #1a1a2e;
+  --tk-sub:   #555566;
+  --tk-muted: #888899;
+  --tk-border:#e2e0ea;
+
+  --tk-shadow-sm: 0 2px 10px rgba(59,53,168,.07);
+  --tk-shadow-md: 0 4px 20px rgba(59,53,168,.12);
+  --tk-shadow-lg: 0 8px 40px rgba(59,53,168,.16);
+
+  --tk-r-sm:  8px;
+  --tk-r-md:  12px;
+  --tk-r-lg:  16px;
+  --tk-r-pill: 28px;
+
+  --tk-font: 'Figtree', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--tk-font);
+  background: var(--tk-bg);
+  color: var(--tk-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ============================================
+   TIPOGRAFÍA
+   ============================================ */
+.tk-super {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--tk-indigo); font-family: var(--tk-font);
+}
+.tk-super-muted {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.26em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55); font-family: var(--tk-font);
+}
+.tk-h1 {
+  font-size: clamp(24px, 4.5vw, 34px); font-weight: 800; letter-spacing: -0.5px;
+  line-height: 1.15; color: var(--tk-ink); font-family: var(--tk-font);
+}
+.tk-h1-white {
+  font-size: clamp(24px, 4.5vw, 34px); font-weight: 800; letter-spacing: -0.5px;
+  line-height: 1.15; color: #fff; font-family: var(--tk-font);
+}
+.tk-h2 {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.2px;
+  color: var(--tk-ink); font-family: var(--tk-font);
+}
+.tk-body {
+  font-size: 14.5px; font-weight: 400; line-height: 1.7;
+  color: var(--tk-sub); font-family: var(--tk-font);
+}
+.tk-label {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--tk-muted); font-family: var(--tk-font);
+}
+.tk-grad-text {
+  background: var(--tk-grad);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.tk-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+.tk-wrap-wide { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+.tk-section { padding: 36px 0 52px; }
+
+/* ============================================
+   TOP BAR
+   ============================================ */
+.topbar {
+  background: var(--tk-white);
+  border-bottom: 1px solid var(--tk-border);
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.topbar-brand { display: flex; align-items: center; gap: 12px; }
+.topbar-brand img { height: 34px; width: auto; }
+.topbar-brand-text { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tk-muted); line-height: 1.4; }
+.topbar-brand-text strong { display: block; color: var(--tk-indigo); font-size: 11px; letter-spacing: 0.14em; }
+
+.topbar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.tk-btn-cta {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 28px; background: var(--tk-grad-h); color: #fff;
+  border: none; border-radius: var(--tk-r-pill);
+  font-family: var(--tk-font); font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
+  cursor: pointer; box-shadow: 0 4px 18px rgba(59,53,168,.28); transition: all .2s;
+  white-space: nowrap; line-height: 1.2;
+}
+.tk-btn-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(59,53,168,.38); }
+.tk-btn-cta:focus-visible { outline: 2px solid var(--tk-coral); outline-offset: 3px; }
+.tk-btn-cta:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.tk-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; background: var(--tk-indigo); color: #fff;
+  border: none; border-radius: 24px;
+  font-family: var(--tk-font); font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s;
+  white-space: nowrap; line-height: 1.2;
+}
+.tk-btn-primary:hover { background: var(--tk-deep); transform: translateY(-1px); }
+.tk-btn-primary:disabled { background: var(--tk-border); color: var(--tk-muted); cursor: not-allowed; transform: none; }
+.tk-btn-primary:focus-visible { outline: 2px solid var(--tk-coral); outline-offset: 3px; }
+
+.tk-btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; background: transparent; color: var(--tk-indigo);
+  border: 2px solid var(--tk-indigo); border-radius: 24px;
+  font-family: var(--tk-font); font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s;
+}
+.tk-btn-outline:hover { background: var(--tk-indigo); color: #fff; }
+.tk-btn-outline:focus-visible { outline: 2px solid var(--tk-coral); outline-offset: 3px; }
+.tk-btn-outline:disabled { opacity: .35; cursor: not-allowed; }
+
+.tk-btn-ghost {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 16px; background: transparent; color: var(--tk-muted);
+  border: 1px solid var(--tk-border); border-radius: 20px;
+  font-family: var(--tk-font); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all .2s;
+}
+.tk-btn-ghost:hover { color: var(--tk-ink); border-color: var(--tk-ink); }
+.tk-btn-ghost:focus-visible { outline: 2px solid var(--tk-coral); outline-offset: 3px; }
+.tk-btn-ghost svg { width: 14px; height: 14px; }
+.tk-btn-ghost:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ============================================
+   HERO / HEADER PRINCIPAL
+   ============================================ */
+.tk-header {
+  background: var(--tk-grad);
+  padding: 52px 32px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.tk-header::before {
+  content: "";
+  position: absolute; top: -80px; right: -80px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.tk-header::after {
+  content: "";
+  position: absolute; bottom: -100px; left: 10%;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.tk-header-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+.tk-header-eyebrow { margin-bottom: 18px; }
+.tk-header-title { margin-bottom: 14px; }
+.tk-header-sub { color: rgba(255,255,255,.82); font-size: 15px; max-width: 560px; }
+.tk-header-meta {
+  display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px;
+  padding-top: 22px; border-top: 1px solid rgba(255,255,255,.2);
+}
+.tk-header-meta-item { color: rgba(255,255,255,.9); }
+.tk-header-meta-item .lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,.55); display: block; margin-bottom: 3px; }
+.tk-header-meta-item .val { font-size: 13px; font-weight: 700; }
+
+/* ============================================
+   SIGNATURE ELEMENT — El Sendero (camino de 4 estaciones)
+   ============================================ */
+.sendero-wrap { background: var(--tk-white); border-bottom: 1px solid var(--tk-border); padding: 26px 24px 22px; }
+
+/* ============================================
+   PANTALLA DE BIENVENIDA
+   ============================================ */
+.bienvenida-screen { display: block; }
+.bienvenida-screen.hidden { display: none; }
+
+.bienvenida-hero {
+  background: var(--tk-grad);
+  padding: 56px 32px 64px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.bienvenida-hero::before {
+  content: "";
+  position: absolute; top: -100px; right: -60px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.bienvenida-hero::after {
+  content: "";
+  position: absolute; bottom: -120px; left: 5%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.bienvenida-hero-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+.bienvenida-logo { height: 46px; width: auto; background: #fff; padding: 8px 14px; border-radius: 10px; margin: 0 auto 28px; display: block; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+.bienvenida-eyebrow { margin-bottom: 18px; }
+.bienvenida-title { margin-bottom: 16px; }
+.bienvenida-sub { color: rgba(255,255,255,.85); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+.bienvenida-body { padding: 44px 0 56px; }
+.bienvenida-card {
+  background: var(--tk-white); border: 1px solid var(--tk-border); border-radius: var(--tk-r-lg);
+  padding: 30px 28px; box-shadow: var(--tk-shadow-md); max-width: 480px; margin: -40px auto 36px;
+  position: relative; z-index: 2;
+}
+.bienvenida-card label.tk-label { font-size: 11px; margin-bottom: 9px; }
+.bienvenida-card input[type="text"] { font-size: 16px; padding: 13px 16px; text-align: center; font-weight: 600; }
+.bienvenida-card-hint { font-size: 12px; color: var(--tk-muted); text-align: center; margin-top: 10px; }
+
+.bienvenida-menu-title { text-align: center; margin-bottom: 24px; }
+.bienvenida-menu-title .tk-super { display: block; margin-bottom: 8px; }
+.bienvenida-menu-title h3 { font-size: 18px; font-weight: 800; color: var(--tk-ink); }
+
+.bienvenida-menu {
+  max-width: 700px; margin: 0 auto 40px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+@media (max-width: 680px) { .bienvenida-menu { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .bienvenida-menu { grid-template-columns: 1fr; } }
+
+.bienvenida-menu-item {
+  background: var(--tk-white); border: 1px solid var(--tk-border); border-radius: var(--tk-r-md);
+  padding: 18px 16px; text-align: left; box-shadow: var(--tk-shadow-sm);
+}
+.bienvenida-menu-item .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--tk-grad);
+  color: #fff; font-size: 12.5px; font-weight: 800; margin-bottom: 12px;
+}
+.bienvenida-menu-item .titulo { font-size: 13px; font-weight: 700; color: var(--tk-ink); line-height: 1.4; }
+
+.bienvenida-cta-wrap { text-align: center; }
+.bienvenida-cta-wrap .tk-btn-cta { font-size: 15px; padding: 16px 36px; }
+.bienvenida-cta-hint { font-size: 12px; color: var(--tk-muted); margin-top: 14px; }
+.bienvenida-cta-wrap .tk-btn-cta:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+
+.sendero { max-width: 780px; margin: 0 auto; }
+.sendero-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 4px;
+}
+.sendero-line {
+  position: absolute;
+  top: 17px; left: 30px; right: 30px;
+  height: 3px;
+  background: var(--tk-border);
+  z-index: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sendero-line-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: var(--tk-grad-h);
+  border-radius: 2px;
+  transition: width .6s ease;
+  width: 0%;
+}
+.estacion {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  flex: 1; cursor: pointer; background: none; border: none; font-family: var(--tk-font);
+  padding: 0;
+}
+.estacion:focus-visible .estacion-nodo { outline: 2px solid var(--tk-coral); outline-offset: 3px; }
+.estacion-nodo {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--tk-white);
+  border: 3px solid var(--tk-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: var(--tk-muted);
+  transition: all .25s;
+}
+.estacion-label { font-size: 10.5px; font-weight: 700; color: var(--tk-muted); text-align: center; letter-spacing: 0.02em; max-width: 90px; }
+
+.estacion.done .estacion-nodo { background: var(--tk-grad); border-color: transparent; color: #fff; }
+.estacion.done .estacion-label { color: var(--tk-ink); }
+.estacion.active .estacion-nodo { border-color: var(--tk-indigo); color: var(--tk-indigo); transform: scale(1.12); box-shadow: 0 0 0 5px rgba(59,53,168,.12); }
+.estacion.active .estacion-label { color: var(--tk-indigo); }
+.estacion.locked { cursor: not-allowed; opacity: .55; }
+.estacion.locked .estacion-nodo { background: var(--tk-bg); }
+
+/* ============================================
+   PÁGINAS INTERNAS — indicador de paso dentro del encuentro
+   ============================================ */
+.pagina-indicador { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 0 0 28px; }
+.pagina-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--tk-border); transition: all .25s; }
+.pagina-dot.is-current { background: var(--tk-indigo); transform: scale(1.5); }
+.pagina-dot.is-done { background: var(--tk-magenta); }
+
+.pagina-contador { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--tk-muted); text-transform: uppercase; margin-bottom: 8px; }
+
+/* ============================================
+   CONTENEDOR DE ENCUENTROS Y PÁGINAS
+   ============================================ */
+.encuentro { display: none; }
+.encuentro.visible { display: block; }
+
+.pagina { display: none; animation: fadeIn .35s ease; }
+.pagina.visible { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.encuentro-head {
+  background: var(--tk-grad-soft);
+  border-radius: var(--tk-r-lg);
+  padding: 22px 24px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(59,53,168,.1);
+}
+.encuentro-head .tk-super { margin-bottom: 8px; }
+
+.encuentro-resumen {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(59,53,168,.12);
+}
+.encuentro-resumen-toggle {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; color: var(--tk-indigo);
+  cursor: pointer; background: none; border: none; padding: 0; font-family: var(--tk-font);
+}
+.encuentro-resumen-toggle svg { width: 14px; height: 14px; transition: transform .2s; }
+.encuentro-resumen-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.encuentro-resumen-body { display: none; margin-top: 14px; }
+.encuentro-resumen-body.open { display: block; }
+.concepto-chip {
+  display: inline-block; background: var(--tk-white); border: 1px solid var(--tk-border);
+  border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--tk-sub);
+  margin: 0 6px 8px 0;
+}
+.concepto-detalle { font-size: 13px; color: var(--tk-sub); margin-top: 10px; line-height: 1.65; }
+.concepto-detalle strong { color: var(--tk-ink); }
+
+/* ============================================
+   PANELES DE EJERCICIO
+   ============================================ */
+.tk-panel { background: var(--tk-card); border: 1px solid var(--tk-border); border-radius: var(--tk-r-lg); overflow: hidden; box-shadow: var(--tk-shadow-sm); margin-bottom: 22px; }
+.tk-panel-head {
+  background: var(--tk-grad-soft); padding: 15px 22px; border-bottom: 1px solid var(--tk-border);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.tk-panel-head-text { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tk-indigo); }
+.tk-panel-body { padding: 22px; }
+.tk-panel-body > * + * { margin-top: 16px; }
+
+.consigna { font-size: 14.5px; color: var(--tk-ink); font-weight: 600; margin-bottom: 10px; line-height: 1.55; }
+.consigna-sub { font-size: 13px; color: var(--tk-sub); font-weight: 400; margin-top: -4px; margin-bottom: 12px; }
+
+.campo-fila { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--tk-border); }
+.campo-fila:last-child { border-bottom: none; }
+.campo-fila-grid2 { display: grid; grid-template-columns: 1fr 2fr; gap: 14px; align-items: start; }
+@media (max-width: 560px) { .campo-fila-grid2 { grid-template-columns: 1fr; } }
+
+textarea, input[type="text"] {
+  font-family: var(--tk-font); width: 100%; padding: 11px 15px;
+  border: 1.5px solid var(--tk-border); border-radius: var(--tk-r-sm);
+  font-size: 14px; color: var(--tk-ink); background: white; outline: none;
+  transition: border-color .2s, box-shadow .2s; resize: vertical;
+}
+textarea { min-height: 64px; line-height: 1.55; }
+input:focus, textarea:focus { border-color: var(--tk-indigo); box-shadow: 0 0 0 3px rgba(59,53,168,.1); }
+textarea::placeholder, input::placeholder { color: var(--tk-muted); opacity: .65; }
+
+label.tk-label { display: block; margin-bottom: 7px; }
+
+.capa-row { display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--tk-border); }
+.capa-row:last-child { border-bottom: none; }
+@media (max-width: 560px) { .capa-row { grid-template-columns: 1fr; } }
+.capa-tag { display: flex; align-items: center; gap: 8px; padding-top: 9px; }
+.capa-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--tk-grad); flex-shrink: 0; }
+.capa-tag-text { font-size: 12.5px; font-weight: 700; color: var(--tk-ink); }
+.capa-tag-detalle { font-size: 10.5px; color: var(--tk-muted); display: block; margin-top: 1px; }
+
+.matriz-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.matriz-table th { background: var(--tk-grad); color: white; padding: 10px 12px; text-align: left; font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.matriz-table th:first-child { border-radius: var(--tk-r-sm) 0 0 0; }
+.matriz-table th:last-child { border-radius: 0 var(--tk-r-sm) 0 0; }
+.matriz-table td { padding: 10px 12px; border-bottom: 1px solid var(--tk-border); vertical-align: top; }
+.matriz-table td:first-child { font-weight: 700; font-size: 12px; color: var(--tk-ink); width: 130px; }
+.matriz-table textarea { min-height: 50px; font-size: 13px; }
+.matriz-scroll { overflow-x: auto; margin: 0 -4px; padding: 0 4px; }
+
+.tk-card-accent { background: var(--tk-card); border-left: 4px solid var(--tk-coral); border-radius: 0 var(--tk-r-md) var(--tk-r-md) 0; padding: 14px 18px; font-size: 13px; color: var(--tk-sub); }
+.tk-card-accent strong { color: var(--tk-ink); }
+
+.cierre-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.cierre-item { background: var(--tk-card); border: 1px solid var(--tk-border); border-radius: var(--tk-r-md); padding: 16px 18px; }
+.cierre-item-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-weight: 700; font-size: 13.5px; }
+.cierre-item-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--tk-grad);
+  color: #fff; font-size: 11px; font-weight: 800; flex-shrink: 0;
+}
+
+/* Navegación inferior: entre páginas (dentro de un encuentro) y entre encuentros */
+.pagina-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; gap: 16px; flex-wrap: wrap; }
+.pagina-nav .tk-btn-primary, .pagina-nav .tk-btn-cta, .pagina-nav .tk-btn-outline { flex-shrink: 0; }
+@media (max-width: 480px) {
+  .pagina-nav { flex-direction: column-reverse; align-items: stretch; }
+  .pagina-nav .tk-btn-primary, .pagina-nav .tk-btn-cta, .pagina-nav .tk-btn-ghost, .pagina-nav .tk-btn-outline { justify-content: center; width: 100%; }
+}
+
+.bloqueo-banner { background: var(--tk-white); border: 1.5px dashed var(--tk-border); border-radius: var(--tk-r-lg); padding: 40px 28px; text-align: center; }
+.bloqueo-banner svg { width: 36px; height: 36px; color: var(--tk-muted); margin-bottom: 14px; }
+.bloqueo-banner-title { font-size: 16px; font-weight: 700; color: var(--tk-ink); margin-bottom: 8px; }
+.bloqueo-banner-text { font-size: 13.5px; color: var(--tk-sub); max-width: 380px; margin: 0 auto; }
+
+.tk-toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+  background: var(--tk-ink); color: #fff; padding: 13px 24px; border-radius: 24px;
+  font-size: 13.5px; font-weight: 600; box-shadow: var(--tk-shadow-lg);
+  display: flex; align-items: center; gap: 10px; z-index: 200;
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  max-width: 90vw;
+}
+.tk-toast.show { transform: translateX(-50%) translateY(0); }
+.tk-toast svg { width: 16px; height: 16px; flex-shrink: 0; color: #6ee7b7; }
+
+.tk-modal-overlay {
+  position: fixed; inset: 0; background: rgba(26,26,46,.55); z-index: 300;
+  display: none; align-items: center; justify-content: center; padding: 24px;
+  backdrop-filter: blur(2px);
+}
+.tk-modal-overlay.show { display: flex; }
+.tk-modal { background: #fff; border-radius: var(--tk-r-lg); max-width: 420px; width: 100%; padding: 28px; box-shadow: var(--tk-shadow-lg); }
+.tk-modal-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+.tk-modal-text { font-size: 13.5px; color: var(--tk-sub); margin-bottom: 20px; line-height: 1.6; }
+.tk-modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.tk-modal input[type="file"] { display: none; }
+
+.autosave-indicator { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--tk-muted); }
+.autosave-indicator svg { width: 12px; height: 12px; }
+.autosave-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; flex-shrink: 0; }
+
+/* ============================================
+   FOOTER — minimalista, solo degradé
+   ============================================ */
+.tk-footer { background: var(--tk-grad); height: 64px; }
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .topbar, .sendero-wrap { display: none !important; }
+  .bienvenida-screen { display: none !important; }
+  .encuentro { display: block !important; }
+  .pagina { display: block !important; }
+  .tk-header { background: none !important; color: var(--tk-ink); padding: 0 0 24px; -webkit-print-color-adjust: exact; }
+  .tk-header::before, .tk-header::after { display: none; }
+  .tk-header-title, .tk-header-eyebrow .tk-super { color: var(--tk-ink) !important; -webkit-text-fill-color: var(--tk-ink) !important; background: none !important; }
+  .tk-header-sub, .tk-header-meta-item .val, .tk-header-meta-item .lbl { color: var(--tk-ink) !important; }
+  .tk-panel, .tk-card-accent { box-shadow: none; border: 1px solid #ccc; }
+  .tk-footer { background: var(--tk-grad) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  textarea, input[type="text"] { border: 1px solid #999; }
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.flex-wrap-gap { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     PANTALLA DE BIENVENIDA
+     ============================================ -->
+<section class="bienvenida-screen" id="bienvenidaScreen">
+  <div class="bienvenida-hero">
+    <div class="bienvenida-hero-inner">
+      <img class="bienvenida-logo" src="data:image/png;base64,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" alt="Universidad de San Andrés">
+      <div class="bienvenida-eyebrow">
+        <span class="tk-super-muted">Bitácora de Viaje · Taller virtual de 4 encuentros</span>
+      </div>
+      <h1 class="tk-h1-white bienvenida-title">Inspiración e Influencia</h1>
+      <p class="bienvenida-sub">Programa Executive MBA UDESA · Un cuaderno de bitácora para registrar, encuentro a encuentro, tus descubrimientos sobre el poder de influenciar e inspirar a otros.</p>
+    </div>
+  </div>
+
+  <div class="bienvenida-body">
+    <div class="tk-wrap">
+
+      <div class="bienvenida-card">
+        <label class="tk-label" for="nombreAlumno">¿Cómo te llamás?</label>
+        <input type="text" id="nombreAlumno" placeholder="Escribí tu nombre" autocomplete="name">
+        <p class="bienvenida-card-hint">Vamos a usar tu nombre para personalizar tu bitácora.</p>
+      </div>
+
+      <div class="bienvenida-menu-title">
+        <span class="tk-super">Tu recorrido</span>
+        <h3>4 encuentros te esperan</h3>
+      </div>
+
+      <div class="bienvenida-menu">
+        <div class="bienvenida-menu-item">
+          <span class="num">1</span>
+          <div class="titulo">Quién estoy siendo hoy</div>
+        </div>
+        <div class="bienvenida-menu-item">
+          <span class="num">2</span>
+          <div class="titulo">El lenguaje que crea realidad</div>
+        </div>
+        <div class="bienvenida-menu-item">
+          <span class="num">3</span>
+          <div class="titulo">La escucha y las historias</div>
+        </div>
+        <div class="bienvenida-menu-item">
+          <span class="num">4</span>
+          <div class="titulo">El mundo de las promesas</div>
+        </div>
+      </div>
+
+      <div class="bienvenida-cta-wrap">
+        <button class="tk-btn-cta" id="btnComenzarViaje" type="button" disabled>
+          Comenzar mi viaje
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="bienvenida-cta-hint">Escribí tu nombre para comenzar</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     APP PRINCIPAL (oculta hasta comenzar)
+     ============================================ -->
+<div id="appMain" class="hidden">
+<header class="topbar no-print">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <img src="data:image/png;base64,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" alt="Universidad de San Andrés">
+      <div class="topbar-brand-text">
+        Programa Executive MBA UDESA
+        <strong>Inspiración e Influencia</strong>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span class="autosave-indicator" id="autosaveIndicator">
+        <span class="autosave-dot"></span>
+        Guardado en este navegador
+      </span>
+      <button class="tk-btn-ghost" id="btnExportar" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exportar progreso
+      </button>
+      <button class="tk-btn-ghost" id="btnImportar" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Importar progreso
+      </button>
+      <input type="file" id="fileImportar" accept="application/json" class="visually-hidden">
+    </div>
+  </div>
+</header>
+
+<section class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-header-eyebrow">
+      <span class="tk-super-muted">Bitácora de Viaje · Taller virtual de 4 encuentros</span>
+    </div>
+    <h1 class="tk-h1-white tk-header-title">Inspiración e Influencia</h1>
+    <p class="tk-header-sub">Un cuaderno de bitácora para registrar, encuentro a encuentro, tus descubrimientos sobre el poder de influenciar e inspirar a otros — desde el autoconocimiento hasta el arte de pedir y prometer.</p>
+    <div class="tk-header-meta">
+      <div class="tk-header-meta-item">
+        <span class="lbl">Programa</span>
+        <span class="val">Programa Executive MBA UDESA</span>
+      </div>
+      <div class="tk-header-meta-item">
+        <span class="lbl">Docente titular</span>
+        <span class="val">Lina Zubiría</span>
+      </div>
+      <div class="tk-header-meta-item">
+        <span class="lbl">Docente invitado</span>
+        <span class="val">Esteban Toledo</span>
+      </div>
+      <div class="tk-header-meta-item">
+        <span class="lbl">Tu progreso</span>
+        <span class="val" id="progresoTexto">0 de 4 encuentros completos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="sendero-wrap no-print" aria-label="Progreso del taller">
+  <div class="sendero">
+    <div class="sendero-track">
+      <div class="sendero-line"><div class="sendero-line-fill" id="senderoFill"></div></div>
+      <button class="estacion" data-encuentro="1" type="button" aria-current="true">
+        <span class="estacion-nodo">1</span>
+        <span class="estacion-label">Quién estoy siendo hoy</span>
+      </button>
+      <button class="estacion locked" data-encuentro="2" type="button" disabled>
+        <span class="estacion-nodo">2</span>
+        <span class="estacion-label">El lenguaje que crea realidad</span>
+      </button>
+      <button class="estacion locked" data-encuentro="3" type="button" disabled>
+        <span class="estacion-nodo">3</span>
+        <span class="estacion-label">La escucha y las historias</span>
+      </button>
+      <button class="estacion locked" data-encuentro="4" type="button" disabled>
+        <span class="estacion-nodo">4</span>
+        <span class="estacion-label">El mundo de las promesas</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<main class="tk-wrap tk-section">
+
+  <article class="encuentro visible" id="encuentro-1" data-encuentro="1">
+    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de 5</div>
+    <div class="pagina-indicador" data-pagina-indicador>
+      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
+    </div>
+
+    <!-- PÁGINA 1.1 -->
+    <div class="pagina visible" data-pagina="1">
+      <div class="encuentro-head">
+        <span class="tk-super">Encuentro 1 · Autoconocimiento y estilo de liderazgo</span>
+        <h2 class="tk-h2">¿Quién estoy siendo hoy?</h2>
+
+        <div class="encuentro-resumen">
+          <button class="encuentro-resumen-toggle" aria-expanded="false" data-target="resumen-1" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Ver conceptos clave de este encuentro
+          </button>
+          <div class="encuentro-resumen-body" id="resumen-1">
+            <div class="concepto-chip">Mapa de Poder</div>
+            <div class="concepto-chip">Poder Relacional</div>
+            <div class="concepto-chip">Poder Posicional</div>
+            <div class="concepto-chip">Poder Experto</div>
+            <div class="concepto-chip">Máscaras del Liderazgo</div>
+            <p class="concepto-detalle">Antes de influenciar a otros, conviene mirar desde dónde lo hacemos. El <strong>Mapa de Poder</strong> distingue tres fuentes: el poder que nace de los vínculos (relacional), el que da el rol o cargo (posicional) y el que da el saber (experto). Las <strong>Máscaras del Liderazgo</strong> son lo que mostramos —y lo que ocultamos— al liderar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 1 · Check-in</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">Tres personas que influenciaron en mi vida</p>
+          <p class="consigna-sub">Pensá en tres personas —del ámbito que sea— que marcaron tu forma de ver el mundo o de liderar. ¿Quiénes fueron, y por qué?</p>
+
+          <div class="campo-fila campo-fila-grid2">
+            <div><label class="tk-label" for="e1-persona1-nombre">Nombre</label><input type="text" id="e1-persona1-nombre" data-field placeholder="Ej: mi primer jefe, mi abuela..."></div>
+            <div><label class="tk-label" for="e1-persona1-razon">¿Por qué?</label><textarea id="e1-persona1-razon" data-field placeholder="¿Qué hizo o dijo que te marcó?"></textarea></div>
+          </div>
+          <div class="campo-fila campo-fila-grid2">
+            <div><label class="tk-label" for="e1-persona2-nombre">Nombre</label><input type="text" id="e1-persona2-nombre" data-field></div>
+            <div><label class="tk-label" for="e1-persona2-razon">¿Por qué?</label><textarea id="e1-persona2-razon" data-field></textarea></div>
+          </div>
+          <div class="campo-fila campo-fila-grid2">
+            <div><label class="tk-label" for="e1-persona3-nombre">Nombre</label><input type="text" id="e1-persona3-nombre" data-field></div>
+            <div><label class="tk-label" for="e1-persona3-razon">¿Por qué?</label><textarea id="e1-persona3-razon" data-field></textarea></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <span></span>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 1.2 -->
+    <div class="pagina" data-pagina="2">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 2 · Mapa de Poder Personal</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">¿Desde qué tipo de poder influencio hoy?</p>
+          <div>
+            <label class="tk-label" for="e1-poder-relacional">Poder Relacional (vínculos)</label>
+            <textarea id="e1-poder-relacional" data-field placeholder="¿Cómo influencio a través de mis vínculos y relaciones?"></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e1-poder-posicional">Poder Posicional (rol / cargo)</label>
+            <textarea id="e1-poder-posicional" data-field placeholder="¿Cómo influencio desde mi rol o posición formal?"></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e1-poder-experto">Poder Experto (saber)</label>
+            <textarea id="e1-poder-experto" data-field placeholder="¿Cómo influencio a través de mi conocimiento o expertise?"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 1.3 -->
+    <div class="pagina" data-pagina="3">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 3 · Máscaras del liderazgo</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">¿Qué máscaras uso al liderar? ¿Qué muestro y qué oculto?</p>
+          <textarea id="e1-mascaras" data-field placeholder="Describí las máscaras que usás al liderar..." style="min-height:90px;"></textarea>
+          <div class="tk-card-accent">
+            <strong>Para la reflexión en duplas:</strong> ¿es posible —o deseable— liderar sin máscaras?
+          </div>
+          <textarea id="e1-mascaras-reflexion" data-field placeholder="Tu reflexión sobre la pregunta anterior..."></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 1.4 -->
+    <div class="pagina" data-pagina="4">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">📌 Tarea para el Encuentro 2</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">¿Qué desafío tengo en la actualidad a la hora de influenciar?</p>
+          <textarea id="e1-desafio" data-field placeholder="Identificá un desafío real de influencia laboral o social que estés enfrentando hoy..." style="min-height:90px;"></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 1.5 — Tres preguntas poderosas -->
+    <div class="pagina" data-pagina="5">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Tres preguntas poderosas</span>
+        </div>
+        <div class="tk-panel-body">
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Qué sentiste en este encuentro?</div>
+              <textarea id="e1-cierre-sentiste" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta?</div>
+              <textarea id="e1-cierre-diste-cuenta" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevas para mejorar?</div>
+              <textarea id="e1-cierre-llevas" data-field></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-completar="1" type="button">
+          Completar Encuentro 1
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="encuentro" id="encuentro-2" data-encuentro="2">
+    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de 5</div>
+    <div class="pagina-indicador" data-pagina-indicador>
+      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
+    </div>
+
+    <!-- PÁGINA 2.1 -->
+    <div class="pagina visible" data-pagina="1">
+      <div class="encuentro-head">
+        <span class="tk-super">Encuentro 2 · Lenguaje y actos lingüísticos</span>
+        <h2 class="tk-h2">El lenguaje que crea realidad</h2>
+
+        <div class="encuentro-resumen">
+          <button class="encuentro-resumen-toggle" aria-expanded="false" data-target="resumen-2" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Ver conceptos clave de este encuentro
+          </button>
+          <div class="encuentro-resumen-body" id="resumen-2">
+            <div class="concepto-chip">Actos Lingüísticos</div>
+            <div class="concepto-chip">Declaraciones</div>
+            <div class="concepto-chip">Afirmaciones</div>
+            <div class="concepto-chip">Juicios</div>
+            <div class="concepto-chip">Conversaciones ATR</div>
+            <p class="concepto-detalle">El lenguaje no describe la realidad: la crea. Distinguimos <strong>declaraciones</strong> (generan un nuevo estado de cosas), <strong>afirmaciones</strong> (verificables, describen el mundo) y <strong>juicios</strong> (opiniones que muchas veces presentamos como verdades). Las <strong>Conversaciones ATR</strong> son aquellas Auténticas, Transparentes y Responsables.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 1 · Mi desafío en tres actos</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">Retomá el desafío de influencia que identificaste en el Encuentro 1, y contalo en tres actos.</p>
+          <div>
+            <label class="tk-label" for="e2-acto1">Acto I · Qué ocurre</label>
+            <textarea id="e2-acto1" data-field placeholder="Describí la situación..."></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e2-acto2">Acto II · Qué intenté</label>
+            <textarea id="e2-acto2" data-field placeholder="¿Qué hiciste o dijiste para influenciar?"></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e2-acto3">Acto III · Resultado obtenido</label>
+            <textarea id="e2-acto3" data-field placeholder="¿Qué pasó finalmente?"></textarea>
+          </div>
+          <div class="tk-card-accent">
+            <strong>Análisis clínico:</strong> revisá tu relato e identificá juicios que presentaste como verdades, y declaraciones que faltaron hacer.
+          </div>
+          <textarea id="e2-analisis-clinico" data-field placeholder="¿Qué juicios disfrazaste de verdad? ¿Qué declaración faltó?"></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <span></span>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2.2 -->
+    <div class="pagina" data-pagina="2">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 2 · Dominios de los juicios</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">¿Qué juicios sostenés —muchas veces sin cuestionarlos— en estos dominios de tu vida?</p>
+          <div class="campo-fila">
+            <label class="tk-label" for="e2-juicio-pais">Mi país</label>
+            <textarea id="e2-juicio-pais" data-field></textarea>
+          </div>
+          <div class="campo-fila">
+            <label class="tk-label" for="e2-juicio-trabajo">Mi trabajo</label>
+            <textarea id="e2-juicio-trabajo" data-field></textarea>
+          </div>
+          <div class="campo-fila">
+            <label class="tk-label" for="e2-juicio-jefe">Mi jefe/a</label>
+            <textarea id="e2-juicio-jefe" data-field></textarea>
+          </div>
+          <div class="campo-fila">
+            <label class="tk-label" for="e2-juicio-equipo">Mi equipo</label>
+            <textarea id="e2-juicio-equipo" data-field></textarea>
+          </div>
+          <div class="campo-fila">
+            <label class="tk-label" for="e2-juicio-futuro">Mi futuro</label>
+            <textarea id="e2-juicio-futuro" data-field></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2.3 -->
+    <div class="pagina" data-pagina="3">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 3 · Enfoques del habla</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">Dos formas de hablar producen efectos muy distintos en el otro.</p>
+          <div class="capa-row">
+            <div class="capa-tag">
+              <span class="capa-dot"></span>
+              <span><span class="capa-tag-text">Enfoque único</span><span class="capa-tag-detalle">Proponer para imponer / convencer</span></span>
+            </div>
+            <textarea id="e2-enfoque-unico" data-field placeholder="¿Cuándo usás este enfoque? ¿Con qué efecto?"></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag">
+              <span class="capa-dot"></span>
+              <span><span class="capa-tag-text">Enfoque múltiple</span><span class="capa-tag-detalle">Indagar para comprender y expandir posibilidades</span></span>
+            </div>
+            <textarea id="e2-enfoque-multiple" data-field placeholder="¿Cuándo usás este enfoque? ¿Con qué efecto?"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2.4 -->
+    <div class="pagina" data-pagina="4">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">📌 Tarea para el Encuentro 3</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">Narrar una experiencia personal de influencia (exitosa o no)</p>
+          <textarea id="e2-narracion-influencia" data-field placeholder="Vas a compartir esta historia con tu compañero/a en el próximo encuentro..." style="min-height:110px;"></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2.5 — Tres preguntas poderosas -->
+    <div class="pagina" data-pagina="5">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Tres preguntas poderosas</span>
+        </div>
+        <div class="tk-panel-body">
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Qué sentiste en este encuentro?</div>
+              <textarea id="e2-cierre-sentiste" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta?</div>
+              <textarea id="e2-cierre-diste-cuenta" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevas para mejorar?</div>
+              <textarea id="e2-cierre-llevas" data-field></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-completar="2" type="button">
+          Completar Encuentro 2
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="encuentro" id="encuentro-3" data-encuentro="3">
+    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de 5</div>
+    <div class="pagina-indicador" data-pagina-indicador>
+      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
+    </div>
+
+    <!-- PÁGINA 3.1 -->
+    <div class="pagina visible" data-pagina="1">
+      <div class="encuentro-head">
+        <span class="tk-super">Encuentro 3 · Narrativa estratégica</span>
+        <h2 class="tk-h2">La escucha y el poder de las historias</h2>
+
+        <div class="encuentro-resumen">
+          <button class="encuentro-resumen-toggle" aria-expanded="false" data-target="resumen-3" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Ver conceptos clave de este encuentro
+          </button>
+          <div class="encuentro-resumen-body" id="resumen-3">
+            <div class="concepto-chip">5 Capas de Sentido</div>
+            <div class="concepto-chip">Escucha Empática</div>
+            <p class="concepto-detalle">Toda historia que influencia opera en <strong>5 Capas de Sentido</strong>: Seguridad (hechos y afirmaciones), Emociones (qué se quiere despertar), el Yo (momentos personales que sustentan el mensaje), el Nosotros (puntos de contacto con la comunidad) y el Ahora (el llamado a la acción). La <strong>Escucha Empática</strong> es narrar en tríadas, recibir interpretaciones ajenas y verificar las brechas de sentido.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 1 · Análisis del video</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">Mirá el video propuesto en clase y completá la matriz observando a cada personaje.</p>
+          <div class="matriz-scroll">
+            <table class="matriz-table">
+              <thead>
+                <tr><th>Herramienta</th><th>Madre</th><th>Hija</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>¿Verificó?</td>
+                  <td><textarea id="e3-video-madre-verifico" data-field></textarea></td>
+                  <td><textarea id="e3-video-hija-verifico" data-field></textarea></td>
+                </tr>
+                <tr>
+                  <td>¿Compartió inquietudes?</td>
+                  <td><textarea id="e3-video-madre-inquietudes" data-field></textarea></td>
+                  <td><textarea id="e3-video-hija-inquietudes" data-field></textarea></td>
+                </tr>
+                <tr>
+                  <td>¿Indagó?</td>
+                  <td><textarea id="e3-video-madre-indago" data-field></textarea></td>
+                  <td><textarea id="e3-video-hija-indago" data-field></textarea></td>
+                </tr>
+                <tr>
+                  <td>Observaciones</td>
+                  <td><textarea id="e3-video-madre-obs" data-field></textarea></td>
+                  <td><textarea id="e3-video-hija-obs" data-field></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <span></span>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 3.2 -->
+    <div class="pagina" data-pagina="2">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 2 · Mi narración para influenciar</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">Las 5 Capas de Sentido</p>
+          <p class="consigna-sub">Construí tu historia de influencia (la que trajiste como tarea) recorriendo cada capa.</p>
+
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span><span class="capa-tag-text">Seguridad</span><span class="capa-tag-detalle">Hechos y afirmaciones</span></span></div>
+            <textarea id="e3-capa-seguridad" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span><span class="capa-tag-text">Emociones</span><span class="capa-tag-detalle">Qué querés despertar en el otro</span></span></div>
+            <textarea id="e3-capa-emociones" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span><span class="capa-tag-text">Capa del Yo</span><span class="capa-tag-detalle">Momentos personales que sustentan el mensaje</span></span></div>
+            <textarea id="e3-capa-yo" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span><span class="capa-tag-text">Capa del Nosotros</span><span class="capa-tag-detalle">Puntos de contacto con la comunidad</span></span></div>
+            <textarea id="e3-capa-nosotros" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span><span class="capa-tag-text">Capa del Ahora</span><span class="capa-tag-detalle">El desafío o llamado a la acción</span></span></div>
+            <textarea id="e3-capa-ahora" data-field></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 3.3 -->
+    <div class="pagina" data-pagina="3">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 3 · Escucha empática</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">Escuchá la historia de influencia de tu compañero/a y anotá tus interpretaciones</p>
+          <textarea id="e3-escucha-interpretaciones" data-field placeholder="¿Qué interpretaste de la historia que escuchaste? ¿Qué brechas de sentido notaste?" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 3.4 -->
+    <div class="pagina" data-pagina="4">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">📌 Tarea para el Encuentro 4 · Redactá dos pedidos reales</span>
+        </div>
+        <div class="tk-panel-body">
+          <div>
+            <label class="tk-label" for="e3-pedido-relacional">Un pedido de cambio de actitud y/o comportamiento a alguien del equipo y/o colega</label>
+            <textarea id="e3-pedido-relacional" data-field style="min-height:80px;"></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e3-pedido-operativo">Un pedido de nueva tarea y/o responsabilidad que deberá asumir una persona</label>
+            <textarea id="e3-pedido-operativo" data-field style="min-height:80px;"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 3.5 — Tres preguntas poderosas -->
+    <div class="pagina" data-pagina="5">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Tres preguntas poderosas</span>
+        </div>
+        <div class="tk-panel-body">
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Qué sentiste en este encuentro?</div>
+              <textarea id="e3-cierre-sentiste" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta?</div>
+              <textarea id="e3-cierre-diste-cuenta" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevas para mejorar?</div>
+              <textarea id="e3-cierre-llevas" data-field></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-completar="3" type="button">
+          Completar Encuentro 3
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="encuentro" id="encuentro-4" data-encuentro="4">
+    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de 5</div>
+    <div class="pagina-indicador" data-pagina-indicador>
+      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
+    </div>
+
+    <!-- PÁGINA 4.1 -->
+    <div class="pagina visible" data-pagina="1">
+      <div class="encuentro-head">
+        <span class="tk-super">Encuentro 4 · El mundo de las promesas y compromisos</span>
+        <h2 class="tk-h2">El mundo de las promesas</h2>
+
+        <div class="encuentro-resumen">
+          <button class="encuentro-resumen-toggle" aria-expanded="false" data-target="resumen-4" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Ver conceptos clave de este encuentro
+          </button>
+          <div class="encuentro-resumen-body" id="resumen-4">
+            <div class="concepto-chip">5 Elementos del Pedido</div>
+            <div class="concepto-chip">4 Escalones</div>
+            <div class="concepto-chip">Promesa Pública</div>
+            <p class="concepto-detalle">Un pedido potente tiene 5 elementos: <strong>Te pido</strong>, <strong>Lo que falta</strong>, la <strong>Acción del otro</strong>, las <strong>Condiciones de satisfacción</strong> y el <strong>Tiempo</strong>. La <strong>Herramienta de los 4 Escalones</strong> ayuda a construir pedidos difíciles desde la emoción: Cuando veo... Siento... Necesito... Te pido...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 1 · 5 elementos de las promesas — Pedido 1</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">Usá el pedido relacional que redactaste en el Encuentro 3 (cambio de actitud o comportamiento) y desglosalo en sus 5 elementos.</p>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Te pido</span></div>
+            <textarea id="e4-pedido1-tepido" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Lo que falta</span></div>
+            <textarea id="e4-pedido1-falta" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Acción del otro/a</span></div>
+            <textarea id="e4-pedido1-accion" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Condiciones de satisfacción</span></div>
+            <textarea id="e4-pedido1-condiciones" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Tiempo</span></div>
+            <textarea id="e4-pedido1-tiempo" data-field></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <span></span>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 4.2 -->
+    <div class="pagina" data-pagina="2">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 2 · Herramienta de los 4 escalones — Pedido 2</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna-sub">Usá tu pedido operativo (nueva tarea o responsabilidad) y construilo escalón por escalón.</p>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Cuando veo…</span></div>
+            <textarea id="e4-pedido2-veo" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Siento…</span></div>
+            <textarea id="e4-pedido2-siento" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Por eso necesito…</span></div>
+            <textarea id="e4-pedido2-necesito" data-field></textarea>
+          </div>
+          <div class="capa-row">
+            <div class="capa-tag"><span class="capa-dot"></span><span class="capa-tag-text">Entonces te pido…</span></div>
+            <textarea id="e4-pedido2-pido" data-field></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 4.3 -->
+    <div class="pagina" data-pagina="3">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Ejercicio 3 · Mi promesa pública</span>
+        </div>
+        <div class="tk-panel-body">
+          <p class="consigna">Prometo liderar desde…</p>
+          <p class="consigna-sub">Completá la frase e incluí un obstáculo habitual que sabés que vas a tener que enfrentar.</p>
+          <textarea id="e4-promesa-publica" data-field placeholder="Prometo liderar desde..." style="min-height:90px;"></textarea>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 4.4 -->
+    <div class="pagina" data-pagina="4">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Cierre de la bitácora</span>
+        </div>
+        <div class="tk-panel-body">
+          <div>
+            <label class="tk-label" for="e4-darse-cuenta-2">¿Qué partes de mí traje que no suelo mostrar?</label>
+            <textarea id="e4-darse-cuenta-2" data-field></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e4-desafia">¿Qué te desafía aún?</label>
+            <textarea id="e4-desafia" data-field></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e4-conversaciones">¿Qué conversaciones necesito tener?</label>
+            <textarea id="e4-conversaciones" data-field></textarea>
+          </div>
+          <div>
+            <label class="tk-label" for="e4-quien-elijo">¿Quién elijo ser desde ahora?</label>
+            <textarea id="e4-quien-elijo" data-field></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 4.5 — Tres preguntas poderosas + cierre final -->
+    <div class="pagina" data-pagina="5">
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Tres preguntas poderosas</span>
+        </div>
+        <div class="tk-panel-body">
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Qué sentiste en este encuentro?</div>
+              <textarea id="e4-cierre-sentiste" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta?</div>
+              <textarea id="e4-cierre-diste-cuenta" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevas para mejorar?</div>
+              <textarea id="e4-cierre-llevas" data-field></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-cta" id="btnFinalizar" type="button">
+          Finalizar y descargar mi bitácora completa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+      </div>
+    </div>
+  </article>
+
+
+</main>
+
+<footer class="tk-footer" role="presentation" aria-hidden="true"></footer>
+</div>
+
+<div class="tk-toast no-print" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastText">Guardado</span>
+</div>
+
+<div class="tk-modal-overlay no-print" id="modalImport">
+  <div class="tk-modal">
+    <h3 class="tk-modal-title">¿Importar este progreso?</h3>
+    <p class="tk-modal-text">Vas a reemplazar todas las respuestas que tenés guardadas en este navegador por las del archivo que elegiste. Esta acción no se puede deshacer.</p>
+    <div class="tk-modal-actions">
+      <button class="tk-btn-ghost" id="modalImportCancel" type="button">Cancelar</button>
+      <button class="tk-btn-primary" id="modalImportConfirm" type="button">Importar y reemplazar</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'tk_bitacora_inspiracion_influencia_v2';
+  var TOTAL_ENCUENTROS = 4;
+  var PAGINAS_POR_ENCUENTRO = 5;
+
+  var state = {
+    completados: { 1: false, 2: false, 3: false, 4: false },
+    respuestas: {},
+    paginaActual: { 1: 1, 2: 1, 3: 1, 4: 1 },
+    nombreAlumno: ''
+  };
+
+  var encuentroActivo = 1;
+
+  // ---------- Utilidades ----------
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function $all(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+
+  function getAllFieldIds() {
+    return $all('[data-field]').map(function (el) { return el.id; }).filter(Boolean);
+  }
+
+  function collectRespuestas() {
+    var data = {};
+    getAllFieldIds().forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) data[id] = el.value;
+    });
+    return data;
+  }
+
+  function applyRespuestas(data) {
+    if (!data) return;
+    Object.keys(data).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.value = data[id];
+    });
+  }
+
+  function persist() {
+    state.respuestas = collectRespuestas();
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.warn('No se pudo guardar en localStorage', e);
+    }
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      var parsed = JSON.parse(raw);
+      if (parsed && parsed.completados) state.completados = parsed.completados;
+      if (parsed && parsed.respuestas) state.respuestas = parsed.respuestas;
+      if (parsed && parsed.paginaActual) state.paginaActual = parsed.paginaActual;
+      if (parsed && parsed.nombreAlumno) state.nombreAlumno = parsed.nombreAlumno;
+      applyRespuestas(state.respuestas);
+      return !!(parsed && parsed.nombreAlumno);
+    } catch (e) {
+      console.warn('No se pudo leer el progreso guardado', e);
+      return false;
+    }
+  }
+
+  var toastTimer = null;
+  function showToast(text) {
+    var toast = $('#toast');
+    var toastText = $('#toastText');
+    if (!toast || !toastText) return;
+    toastText.textContent = text;
+    toast.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+
+  // ---------- Navegación entre encuentros (libre si desbloqueado) ----------
+  function maxDesbloqueado() {
+    var max = 1;
+    for (var i = 1; i <= TOTAL_ENCUENTROS; i++) {
+      if (state.completados[i]) max = Math.min(i + 1, TOTAL_ENCUENTROS);
+    }
+    return max;
+  }
+
+  function renderSendero() {
+    var unlocked = maxDesbloqueado();
+    var completadosCount = 0;
+    for (var i = 1; i <= TOTAL_ENCUENTROS; i++) {
+      if (state.completados[i]) completadosCount++;
+      var btn = $('.estacion[data-encuentro="' + i + '"]');
+      if (!btn) continue;
+      btn.classList.remove('done', 'active', 'locked');
+      var isUnlocked = i <= unlocked;
+      btn.disabled = !isUnlocked;
+      if (state.completados[i]) {
+        btn.classList.add('done');
+      } else if (isUnlocked) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.add('locked');
+      }
+    }
+    var fillPct = (completadosCount / (TOTAL_ENCUENTROS - 1)) * 100;
+    if (TOTAL_ENCUENTROS <= 1) fillPct = 0;
+    fillPct = Math.max(0, Math.min(100, fillPct));
+    var fill = $('#senderoFill');
+    if (fill) fill.style.width = fillPct + '%';
+
+    var progresoTexto = $('#progresoTexto');
+    if (progresoTexto) {
+      progresoTexto.textContent = completadosCount + ' de ' + TOTAL_ENCUENTROS + ' encuentros completos';
+    }
+  }
+
+  function mostrarEncuentro(n, paginaDestino) {
+    n = parseInt(n, 10);
+    encuentroActivo = n;
+    $all('.encuentro').forEach(function (el) {
+      el.classList.toggle('visible', el.dataset.encuentro === String(n));
+    });
+    $all('.estacion').forEach(function (el) {
+      el.setAttribute('aria-current', el.dataset.encuentro === String(n) ? 'true' : 'false');
+    });
+    var pagina = paginaDestino || state.paginaActual[n] || 1;
+    mostrarPagina(n, pagina);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function irAEncuentro(n, paginaDestino) {
+    n = parseInt(n, 10);
+    if (n < 1 || n > TOTAL_ENCUENTROS) return;
+    if (n > maxDesbloqueado()) return; // bloqueado
+    mostrarEncuentro(n, paginaDestino || 1);
+  }
+
+  function completarEncuentro(n) {
+    n = parseInt(n, 10);
+    state.completados[n] = true;
+    persist();
+    renderSendero();
+    var siguiente = Math.min(n + 1, TOTAL_ENCUENTROS);
+    if (n < TOTAL_ENCUENTROS) {
+      mostrarEncuentro(siguiente, 1);
+      showToast('Encuentro ' + n + ' completo. ¡Encuentro ' + siguiente + ' desbloqueado!');
+    } else {
+      showToast('¡Bitácora completa! Podés descargarla para entregarla.');
+    }
+  }
+
+  // ---------- Paginación interna de cada encuentro ----------
+  function mostrarPagina(encuentroNum, paginaNum) {
+    paginaNum = Math.max(1, Math.min(PAGINAS_POR_ENCUENTRO, paginaNum));
+    state.paginaActual[encuentroNum] = paginaNum;
+
+    var encuentroEl = $('.encuentro[data-encuentro="' + encuentroNum + '"]');
+    if (!encuentroEl) return;
+
+    $all('.pagina', encuentroEl).forEach(function (el) {
+      el.classList.toggle('visible', el.dataset.pagina === String(paginaNum));
+    });
+
+    var contador = $('[data-pagina-contador]', encuentroEl);
+    if (contador) {
+      var actualSpan = $('.pagina-actual', contador);
+      if (actualSpan) actualSpan.textContent = paginaNum;
+    }
+
+    var indicador = $('[data-pagina-indicador]', encuentroEl);
+    if (indicador) {
+      $all('.pagina-dot', indicador).forEach(function (dot, idx) {
+        var dotPage = idx + 1;
+        dot.classList.remove('is-current', 'is-done');
+        if (dotPage === paginaNum) {
+          dot.classList.add('is-current');
+        } else if (dotPage < paginaNum) {
+          dot.classList.add('is-done');
+        }
+      });
+    }
+  }
+
+  function paginaSiguiente() {
+    var actual = state.paginaActual[encuentroActivo] || 1;
+    if (actual < PAGINAS_POR_ENCUENTRO) {
+      mostrarPagina(encuentroActivo, actual + 1);
+      persist();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function paginaAnterior() {
+    var actual = state.paginaActual[encuentroActivo] || 1;
+    if (actual > 1) {
+      mostrarPagina(encuentroActivo, actual - 1);
+      persist();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // ---------- Resumen de conceptos (acordeón) ----------
+  function toggleResumen(toggleBtn) {
+    var targetId = toggleBtn.getAttribute('data-target');
+    var body = document.getElementById(targetId);
+    if (!body) return;
+    var isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  // ---------- Exportar / Importar progreso (JSON) ----------
+  function exportarProgreso() {
+    persist();
+    var payload = {
+      tipo: 'bitacora-inspiracion-influencia-progreso',
+      version: 2,
+      exportadoEn: new Date().toISOString(),
+      completados: state.completados,
+      respuestas: state.respuestas,
+      paginaActual: state.paginaActual
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'bitacora-inspiracion-influencia-progreso.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Progreso exportado. Guardá este archivo para continuar después.');
+  }
+
+  var pendingImportFile = null;
+
+  function handleFileSelected(file) {
+    pendingImportFile = file;
+    var overlay = $('#modalImport');
+    if (overlay) overlay.classList.add('show');
+  }
+
+  function confirmarImportacion() {
+    if (!pendingImportFile) return;
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        var parsed = JSON.parse(e.target.result);
+        if (parsed && parsed.completados) state.completados = parsed.completados;
+        if (parsed && parsed.respuestas) state.respuestas = parsed.respuestas;
+        if (parsed && parsed.paginaActual) state.paginaActual = parsed.paginaActual;
+        applyRespuestas(state.respuestas);
+        persist();
+        renderSendero();
+        var unlocked = maxDesbloqueado();
+        mostrarEncuentro(unlocked);
+        showToast('Progreso importado correctamente.');
+      } catch (err) {
+        showToast('No se pudo leer el archivo. ¿Es un JSON válido?');
+      }
+      cerrarModalImport();
+    };
+    reader.readAsText(pendingImportFile);
+  }
+
+  function cerrarModalImport() {
+    var overlay = $('#modalImport');
+    if (overlay) overlay.classList.remove('show');
+    pendingImportFile = null;
+    var fileInput = $('#fileImportar');
+    if (fileInput) fileInput.value = '';
+  }
+
+  // ---------- Generar documento final imprimible (con diseño) ----------
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function construirHtmlFinal() {
+    persist();
+    var fecha = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
+    var logoSrc = document.querySelector('.topbar-brand img') ? document.querySelector('.topbar-brand img').src : '';
+
+    function val(id) {
+      var v = state.respuestas[id];
+      return v && v.trim() ? escapeHtml(v) : '<span class="vacio">(sin completar)</span>';
+    }
+
+    function bloque(titulo, contenidoHtml) {
+      return '<div class="bloque"><h3>' + titulo + '</h3>' + contenidoHtml + '</div>';
+    }
+
+    function preguntasPoderosas(prefijo) {
+      return '<div class="tres-preguntas">' +
+        '<div class="pregunta"><span class="num">1</span><div><strong>¿Qué sentiste en este encuentro?</strong><p>' + val(prefijo + '-cierre-sentiste') + '</p></div></div>' +
+        '<div class="pregunta"><span class="num">2</span><div><strong>¿De qué te diste cuenta?</strong><p>' + val(prefijo + '-cierre-diste-cuenta') + '</p></div></div>' +
+        '<div class="pregunta"><span class="num">3</span><div><strong>¿Qué te llevas para mejorar?</strong><p>' + val(prefijo + '-cierre-llevas') + '</p></div></div>' +
+        '</div>';
+    }
+
+    var secciones = '';
+
+    // ENCUENTRO 1
+    secciones += '<section class="encuentro-print"><h2><span class="tag">Encuentro 1</span>¿Quién estoy siendo hoy?</h2>';
+    secciones += bloque('Tres personas que influenciaron en mi vida',
+      [1, 2, 3].map(function (i) {
+        return '<p><strong>' + val('e1-persona' + i + '-nombre') + '</strong> — ' + val('e1-persona' + i + '-razon') + '</p>';
+      }).join(''));
+    secciones += bloque('Mapa de Poder Personal',
+      '<p><strong>Poder Relacional:</strong> ' + val('e1-poder-relacional') + '</p>' +
+      '<p><strong>Poder Posicional:</strong> ' + val('e1-poder-posicional') + '</p>' +
+      '<p><strong>Poder Experto:</strong> ' + val('e1-poder-experto') + '</p>');
+    secciones += bloque('Máscaras del liderazgo',
+      '<p>' + val('e1-mascaras') + '</p><p><em>Reflexión:</em> ' + val('e1-mascaras-reflexion') + '</p>');
+    secciones += bloque('Desafío de influencia', '<p>' + val('e1-desafio') + '</p>');
+    secciones += bloque('Tres preguntas poderosas', preguntasPoderosas('e1'));
+    secciones += '</section>';
+
+    // ENCUENTRO 2
+    secciones += '<section class="encuentro-print"><h2><span class="tag">Encuentro 2</span>El lenguaje que crea realidad</h2>';
+    secciones += bloque('Mi desafío en tres actos',
+      '<p><strong>Qué ocurre:</strong> ' + val('e2-acto1') + '</p>' +
+      '<p><strong>Qué intenté:</strong> ' + val('e2-acto2') + '</p>' +
+      '<p><strong>Resultado:</strong> ' + val('e2-acto3') + '</p>' +
+      '<p><em>Análisis clínico:</em> ' + val('e2-analisis-clinico') + '</p>');
+    secciones += bloque('Dominios de los juicios',
+      '<p><strong>Mi país:</strong> ' + val('e2-juicio-pais') + '</p>' +
+      '<p><strong>Mi trabajo:</strong> ' + val('e2-juicio-trabajo') + '</p>' +
+      '<p><strong>Mi jefe/a:</strong> ' + val('e2-juicio-jefe') + '</p>' +
+      '<p><strong>Mi equipo:</strong> ' + val('e2-juicio-equipo') + '</p>' +
+      '<p><strong>Mi futuro:</strong> ' + val('e2-juicio-futuro') + '</p>');
+    secciones += bloque('Enfoques del habla',
+      '<p><strong>Enfoque único:</strong> ' + val('e2-enfoque-unico') + '</p>' +
+      '<p><strong>Enfoque múltiple:</strong> ' + val('e2-enfoque-multiple') + '</p>');
+    secciones += bloque('Narración de influencia (tarea)', '<p>' + val('e2-narracion-influencia') + '</p>');
+    secciones += bloque('Tres preguntas poderosas', preguntasPoderosas('e2'));
+    secciones += '</section>';
+
+    // ENCUENTRO 3
+    secciones += '<section class="encuentro-print"><h2><span class="tag">Encuentro 3</span>La escucha y el poder de las historias</h2>';
+    var filasVideo = [
+      ['¿Verificó?', 'e3-video-madre-verifico', 'e3-video-hija-verifico'],
+      ['¿Compartió inquietudes?', 'e3-video-madre-inquietudes', 'e3-video-hija-inquietudes'],
+      ['¿Indagó?', 'e3-video-madre-indago', 'e3-video-hija-indago'],
+      ['Observaciones', 'e3-video-madre-obs', 'e3-video-hija-obs']
+    ].map(function (row) {
+      return '<tr><td class="rowlabel">' + row[0] + '</td><td>' + val(row[1]) + '</td><td>' + val(row[2]) + '</td></tr>';
+    }).join('');
+    secciones += bloque('Análisis del video',
+      '<table class="tablaprint"><tr><th>Herramienta</th><th>Madre</th><th>Hija</th></tr>' + filasVideo + '</table>');
+    secciones += bloque('Mi narración para influenciar — Las 5 Capas de Sentido',
+      '<p><strong>Seguridad:</strong> ' + val('e3-capa-seguridad') + '</p>' +
+      '<p><strong>Emociones:</strong> ' + val('e3-capa-emociones') + '</p>' +
+      '<p><strong>Capa del Yo:</strong> ' + val('e3-capa-yo') + '</p>' +
+      '<p><strong>Capa del Nosotros:</strong> ' + val('e3-capa-nosotros') + '</p>' +
+      '<p><strong>Capa del Ahora:</strong> ' + val('e3-capa-ahora') + '</p>');
+    secciones += bloque('Escucha empática', '<p>' + val('e3-escucha-interpretaciones') + '</p>');
+    secciones += bloque('Pedidos redactados',
+      '<p><strong>Pedido relacional:</strong> ' + val('e3-pedido-relacional') + '</p>' +
+      '<p><strong>Pedido operativo:</strong> ' + val('e3-pedido-operativo') + '</p>');
+    secciones += bloque('Tres preguntas poderosas', preguntasPoderosas('e3'));
+    secciones += '</section>';
+
+    // ENCUENTRO 4
+    secciones += '<section class="encuentro-print"><h2><span class="tag">Encuentro 4</span>El mundo de las promesas</h2>';
+    secciones += bloque('5 elementos de la promesa — Pedido 1',
+      '<p><strong>Te pido:</strong> ' + val('e4-pedido1-tepido') + '</p>' +
+      '<p><strong>Lo que falta:</strong> ' + val('e4-pedido1-falta') + '</p>' +
+      '<p><strong>Acción del otro/a:</strong> ' + val('e4-pedido1-accion') + '</p>' +
+      '<p><strong>Condiciones de satisfacción:</strong> ' + val('e4-pedido1-condiciones') + '</p>' +
+      '<p><strong>Tiempo:</strong> ' + val('e4-pedido1-tiempo') + '</p>');
+    secciones += bloque('4 escalones — Pedido 2',
+      '<p><strong>Cuando veo…</strong> ' + val('e4-pedido2-veo') + '</p>' +
+      '<p><strong>Siento…</strong> ' + val('e4-pedido2-siento') + '</p>' +
+      '<p><strong>Por eso necesito…</strong> ' + val('e4-pedido2-necesito') + '</p>' +
+      '<p><strong>Entonces te pido…</strong> ' + val('e4-pedido2-pido') + '</p>');
+    secciones += bloque('Mi promesa pública', '<p>' + val('e4-promesa-publica') + '</p>');
+    secciones += bloque('Cierre de la bitácora',
+      '<p><strong>¿Qué partes de mí traje que no suelo mostrar?</strong> ' + val('e4-darse-cuenta-2') + '</p>' +
+      '<p><strong>¿Qué te desafía aún?</strong> ' + val('e4-desafia') + '</p>' +
+      '<p><strong>¿Qué conversaciones necesito tener?</strong> ' + val('e4-conversaciones') + '</p>' +
+      '<p><strong>¿Quién elijo ser desde ahora?</strong> ' + val('e4-quien-elijo') + '</p>');
+    secciones += bloque('Tres preguntas poderosas', preguntasPoderosas('e4'));
+    secciones += '</section>';
+
+    var html = '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">' +
+      '<title>Bitácora de Viaje — Inspiración e Influencia</title>' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
+      '<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">' +
+      '<style>' +
+      ':root{--indigo:#3b35a8;--coral:#d4522a;--magenta:#8b3a8f;--ink:#1a1a2e;--sub:#555566;--border:#e2e0ea;--bg:#f0eff5;}' +
+      '*{box-sizing:border-box;}' +
+      'body{font-family:"Figtree",sans-serif;color:var(--ink);max-width:820px;margin:0 auto;padding:0 0 60px;line-height:1.65;background:#fff;}' +
+      '.cover{background:linear-gradient(135deg,#3b35a8 0%,#8b3a8f 50%,#d4522a 100%);padding:48px 40px;color:#fff;margin-bottom:36px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}' +
+      '.cover img{height:40px;background:#fff;padding:6px 10px;border-radius:8px;margin-bottom:24px;}' +
+      '.cover .eyebrow{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:10px;}' +
+      '.cover h1{font-size:32px;font-weight:800;letter-spacing:-0.5px;margin-bottom:14px;}' +
+      '.cover .meta{font-size:12.5px;color:rgba(255,255,255,.85);display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25);}' +
+      '.cover .meta div span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,.55);margin-bottom:2px;}' +
+      '.body-wrap{padding:0 40px;}' +
+      '.encuentro-print{margin-bottom:40px;padding-bottom:8px;page-break-inside:avoid;}' +
+      '.encuentro-print h2{font-size:21px;font-weight:800;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:baseline;gap:12px;}' +
+      '.encuentro-print h2 .tag{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;background:var(--coral);padding:4px 10px;border-radius:12px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}' +
+      '.bloque{margin-bottom:20px;padding:16px 18px;background:var(--bg);border-radius:10px;border-left:3px solid var(--magenta);-webkit-print-color-adjust:exact;print-color-adjust:exact;}' +
+      '.bloque h3{font-size:13px;font-weight:700;color:var(--magenta);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;}' +
+      '.bloque p{margin:4px 0 10px;font-size:13.5px;color:var(--ink);}' +
+      '.bloque p:last-child{margin-bottom:0;}' +
+      '.vacio{color:#aaa;font-style:italic;}' +
+      '.tres-preguntas{display:flex;flex-direction:column;gap:12px;}' +
+      '.pregunta{display:flex;gap:12px;align-items:flex-start;}' +
+      '.pregunta .num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--indigo);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact;}' +
+      '.pregunta strong{font-size:13px;display:block;margin-bottom:3px;}' +
+      '.pregunta p{margin:0;font-size:13.5px;}' +
+      '.tablaprint{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px;}' +
+      '.tablaprint th{background:var(--indigo);color:#fff;padding:8px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:0.06em;-webkit-print-color-adjust:exact;print-color-adjust:exact;}' +
+      '.tablaprint td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;}' +
+      '.tablaprint .rowlabel{font-weight:700;color:var(--ink);width:140px;}' +
+      '.footer-print{text-align:center;padding:24px 0;margin-top:20px;border-top:1px solid var(--border);font-size:10.5px;color:#999;}' +
+      '@media print{.cover{margin:0 0 30px;}.encuentro-print{page-break-after:always;}.encuentro-print:last-of-type{page-break-after:auto;}}' +
+      '</style></head><body>' +
+      '<div class="cover">' +
+      (logoSrc ? '<img src="' + logoSrc + '" alt="Universidad de San Andrés">' : '') +
+      '<div class="eyebrow">Bitácora de Viaje · Taller virtual de 4 encuentros</div>' +
+      '<h1>Inspiración e Influencia</h1>' +
+      '<div class="meta">' +
+      (state.nombreAlumno ? '<div><span>Alumno/a</span>' + escapeHtml(state.nombreAlumno) + '</div>' : '') +
+      '<div><span>Programa</span>Programa Executive MBA UDESA</div>' +
+      '<div><span>Docente titular</span>Lina Zubiría</div>' +
+      '<div><span>Docente invitado</span>Esteban Toledo</div>' +
+      '<div><span>Generado el</span>' + fecha + '</div>' +
+      '</div></div>' +
+      '<div class="body-wrap">' +
+      secciones +
+      '<div class="footer-print">Documento generado automáticamente desde la Bitácora de Viaje digital del taller.</div>' +
+      '</div>' +
+      '</body></html>';
+
+    return html;
+  }
+
+  function finalizarYDescargar() {
+    var html = construirHtmlFinal();
+    var blob = new Blob([html], { type: 'text/html' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'bitacora-inspiracion-influencia-completa.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Bitácora descargada. Abrila en el navegador e imprimí a PDF para entregarla.');
+  }
+
+  // ---------- Autosave con debounce ----------
+  var saveTimer = null;
+  function scheduleSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () { persist(); }, 500);
+  }
+
+  // ---------- Pantalla de bienvenida ----------
+  function aplicarSaludoNombre() {
+    if (!state.nombreAlumno) return;
+    var brandText = $('.topbar-brand-text strong');
+    if (brandText) {
+      brandText.textContent = 'Inspiración e Influencia';
+    }
+    var headerInner = $('.tk-header-inner');
+    if (headerInner && !$('.saludo-personalizado', headerInner)) {
+      var saludo = document.createElement('p');
+      saludo.className = 'saludo-personalizado';
+      saludo.style.cssText = 'color:#fff;font-weight:700;font-size:13px;letter-spacing:0.04em;margin-top:14px;opacity:.95;';
+      saludo.textContent = 'Hola, ' + state.nombreAlumno + ' 👋';
+      var sub = $('.tk-header-sub', headerInner);
+      if (sub) sub.insertAdjacentElement('afterend', saludo);
+    }
+  }
+
+  function mostrarApp() {
+    var bienvenida = $('#bienvenidaScreen');
+    var app = $('#appMain');
+    if (bienvenida) bienvenida.classList.add('hidden');
+    if (app) app.classList.remove('hidden');
+  }
+
+  function mostrarBienvenida() {
+    var bienvenida = $('#bienvenidaScreen');
+    var app = $('#appMain');
+    if (bienvenida) bienvenida.classList.remove('hidden');
+    if (app) app.classList.add('hidden');
+  }
+
+  function comenzarViaje() {
+    var input = $('#nombreAlumno');
+    var nombre = input ? input.value.trim() : '';
+    if (!nombre) return;
+    state.nombreAlumno = nombre;
+    persist();
+    aplicarSaludoNombre();
+    mostrarApp();
+    irAEncuentro(1, 1);
+    showToast('¡Bienvenido/a, ' + nombre + '! Comenzamos por el Encuentro 1.');
+  }
+
+  function initBienvenidaListeners() {
+    var input = $('#nombreAlumno');
+    var btn = $('#btnComenzarViaje');
+    var hint = $('.bienvenida-cta-hint');
+    if (!input || !btn) return;
+
+    function syncBoton() {
+      var tieneNombre = input.value.trim().length > 0;
+      btn.disabled = !tieneNombre;
+      if (hint) hint.style.display = tieneNombre ? 'none' : '';
+    }
+
+    input.addEventListener('input', syncBoton);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !btn.disabled) comenzarViaje();
+    });
+    btn.addEventListener('click', comenzarViaje);
+    syncBoton();
+  }
+
+  // ---------- Listeners ----------
+  function initListeners() {
+    document.addEventListener('input', function (e) {
+      if (e.target.matches('[data-field]')) scheduleSave();
+    });
+
+    $all('.estacion').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        irAEncuentro(btn.getAttribute('data-encuentro'));
+      });
+    });
+
+    $all('[data-completar]').forEach(function (btn) {
+      btn.addEventListener('click', function () { completarEncuentro(btn.getAttribute('data-completar')); });
+    });
+
+    $all('[data-pagina-siguiente]').forEach(function (btn) {
+      btn.addEventListener('click', paginaSiguiente);
+    });
+
+    $all('[data-pagina-anterior]').forEach(function (btn) {
+      btn.addEventListener('click', paginaAnterior);
+    });
+
+    $all('.encuentro-resumen-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () { toggleResumen(btn); });
+    });
+
+    var btnExportar = $('#btnExportar');
+    if (btnExportar) btnExportar.addEventListener('click', exportarProgreso);
+
+    var btnImportar = $('#btnImportar');
+    var fileImportar = $('#fileImportar');
+    if (btnImportar && fileImportar) {
+      btnImportar.addEventListener('click', function () { fileImportar.click(); });
+      fileImportar.addEventListener('change', function (e) {
+        var file = e.target.files && e.target.files[0];
+        if (file) handleFileSelected(file);
+      });
+    }
+
+    var modalCancel = $('#modalImportCancel');
+    if (modalCancel) modalCancel.addEventListener('click', cerrarModalImport);
+    var modalConfirm = $('#modalImportConfirm');
+    if (modalConfirm) modalConfirm.addEventListener('click', confirmarImportacion);
+    var modalOverlay = $('#modalImport');
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', function (e) {
+        if (e.target === modalOverlay) cerrarModalImport();
+      });
+    }
+
+    var btnFinalizar = $('#btnFinalizar');
+    if (btnFinalizar) btnFinalizar.addEventListener('click', finalizarYDescargar);
+
+    window.addEventListener('beforeunload', persist);
+
+    initBienvenidaListeners();
+  }
+
+  function init() {
+    var teniaNombre = load();
+    renderSendero();
+    var unlocked = maxDesbloqueado();
+    mostrarEncuentro(unlocked, state.paginaActual[unlocked] || 1);
+    initListeners();
+
+    if (teniaNombre) {
+      aplicarSaludoNombre();
+      mostrarApp();
+    } else {
+      mostrarBienvenida();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+
+</script>
+</body>
+</html>

@@ -489,6 +489,22 @@ label.tk-label { display: block; margin-bottom: 7px; }
 .tk-modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
 .tk-modal input[type="file"] { display: none; }
 
+.tk-modal-separador { max-width: 440px; text-align: center; }
+.separador-icon {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px;
+  background: var(--tk-grad); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(59,53,168,.28);
+}
+.separador-icon svg { width: 26px; height: 26px; color: #fff; }
+.tk-modal-separador .tk-modal-title { font-size: 19px; }
+.tk-modal-separador .tk-modal-text { text-align: center; }
+.tk-modal-separador .tk-modal-actions { justify-content: center; }
+.separador-aviso {
+  background: rgba(212,82,42,.08); border: 1px solid rgba(212,82,42,.22);
+  border-radius: var(--tk-r-md); padding: 12px 14px; font-size: 12.5px;
+  color: var(--tk-ink); text-align: left;
+}
+
 .autosave-indicator { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--tk-muted); }
 .autosave-indicator svg { width: 12px; height: 12px; }
 .autosave-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; flex-shrink: 0; }
@@ -1230,9 +1246,9 @@ label.tk-label { display: block; margin-bottom: 7px; }
 
 
   <article class="encuentro" id="encuentro-4" data-encuentro="4">
-    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de <span class="pagina-total">3</span></div>
+    <div class="pagina-contador" data-pagina-contador>Página <span class="pagina-actual">1</span> de <span class="pagina-total">4</span></div>
     <div class="pagina-indicador" data-pagina-indicador>
-      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
+      <span class="pagina-dot is-current"></span><span class="pagina-dot"></span><span class="pagina-dot"></span><span class="pagina-dot"></span>
     </div>
 
     <!-- PÁGINA 4.1 -->
@@ -1336,12 +1352,54 @@ label.tk-label { display: block; margin-bottom: 7px; }
       </div>
     </div>
 
-    <!-- PÁGINA 4.3 — CIERRE FINAL UNIFICADO -->
+    <!-- PÁGINA 4.3 — TRES PREGUNTAS PODEROSAS -->
     <div class="pagina" data-pagina="3">
       <div class="cierre-final-intro">
         <span class="tk-super">Cierre de la bitácora</span>
-        <h3>El gran cierre</h3>
-        <p>Llegaste al final del recorrido. Acá se juntan tres cosas: lo que elegís hacer distinto a partir de hoy, tu mirada sobre todo el camino y las tres preguntas poderosas de cierre.</p>
+        <h3>Las tres preguntas poderosas</h3>
+        <p>Antes de mirar todo el recorrido, hacé una primera pausa con estas tres preguntas de cierre.</p>
+      </div>
+
+      <div class="tk-panel">
+        <div class="tk-panel-head">
+          <span class="tk-panel-head-text">Las Tres Preguntas Poderosas de Cierre</span>
+        </div>
+        <div class="tk-panel-body">
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Cómo te sentiste en este encuentro? <span class="cierre-item-hint">Emociones</span></div>
+              <textarea id="e4-cierre-sentiste" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta? <span class="cierre-item-hint">Perspectivas</span></div>
+              <textarea id="e4-cierre-diste-cuenta" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevás de este encuentro? <span class="cierre-item-hint">Herramientas y pistas</span></div>
+              <textarea id="e4-cierre-llevas" data-field></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagina-nav no-print">
+        <button class="tk-btn-ghost" data-pagina-anterior type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Anterior
+        </button>
+        <button class="tk-btn-primary" data-pagina-siguiente type="button">
+          Siguiente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 4.4 — A PARTIR DE HOY -->
+    <div class="pagina" data-pagina="4">
+      <div class="cierre-final-intro">
+        <span class="tk-super">Cierre de la bitácora</span>
+        <h3>A partir de hoy</h3>
+        <p>Llegaste al final del recorrido. Completá estas frases y date un momento para mirar todo el camino recorrido.</p>
       </div>
 
       <div class="tk-panel">
@@ -1349,13 +1407,23 @@ label.tk-label { display: block; margin-bottom: 7px; }
           <span class="tk-panel-head-text">Ejercicio 3 · A partir de hoy</span>
         </div>
         <div class="tk-panel-body">
-          <div>
-            <label class="tk-label" for="e4-apartir-hacer">¿Qué cosas puedo hacer distinto desde mi liderazgo y desde mi influencia?</label>
-            <textarea id="e4-apartir-hacer" data-field style="min-height:90px;"></textarea>
-          </div>
-          <div>
-            <label class="tk-label" for="e4-apartir-compromiso">¿Qué creo que puedo comprometerme también a realizar diferente en mi día a día?</label>
-            <textarea id="e4-apartir-compromiso" data-field style="min-height:90px;"></textarea>
+          <div class="cierre-grid">
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">1</span> Este taller me permitió ver algo de mí que no sabía</div>
+              <textarea id="e4-apartir-1" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">2</span> Me llevo herramientas y pistas, pero aún me desafía</div>
+              <textarea id="e4-apartir-2" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">3</span> Luego de este viaje, sé que debo tener una conversación para…</div>
+              <textarea id="e4-apartir-3" data-field></textarea>
+            </div>
+            <div class="cierre-item">
+              <div class="cierre-item-head"><span class="cierre-item-num">4</span> Luego de este viaje, sé que necesito…</div>
+              <textarea id="e4-apartir-4" data-field></textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -1380,28 +1448,6 @@ label.tk-label { display: block; margin-bottom: 7px; }
           <div>
             <label class="tk-label" for="e4-quien-elijo">¿Quién elijo ser desde ahora?</label>
             <textarea id="e4-quien-elijo" data-field></textarea>
-          </div>
-        </div>
-      </div>
-
-      <div class="tk-panel">
-        <div class="tk-panel-head">
-          <span class="tk-panel-head-text">Las Tres Preguntas Poderosas de Cierre</span>
-        </div>
-        <div class="tk-panel-body">
-          <div class="cierre-grid">
-            <div class="cierre-item">
-              <div class="cierre-item-head"><span class="cierre-item-num">1</span> ¿Cómo te sentiste en este encuentro? <span class="cierre-item-hint">Emociones</span></div>
-              <textarea id="e4-cierre-sentiste" data-field></textarea>
-            </div>
-            <div class="cierre-item">
-              <div class="cierre-item-head"><span class="cierre-item-num">2</span> ¿De qué te diste cuenta? <span class="cierre-item-hint">Perspectivas</span></div>
-              <textarea id="e4-cierre-diste-cuenta" data-field></textarea>
-            </div>
-            <div class="cierre-item">
-              <div class="cierre-item-head"><span class="cierre-item-num">3</span> ¿Qué te llevás de este encuentro? <span class="cierre-item-hint">Herramientas y pistas</span></div>
-              <textarea id="e4-cierre-llevas" data-field></textarea>
-            </div>
           </div>
         </div>
       </div>
@@ -1437,6 +1483,26 @@ label.tk-label { display: block; margin-bottom: 7px; }
     <div class="tk-modal-actions">
       <button class="tk-btn-ghost" id="modalImportCancel" type="button">Cancelar</button>
       <button class="tk-btn-primary" id="modalImportConfirm" type="button">Importar y reemplazar</button>
+    </div>
+  </div>
+</div>
+
+<div class="tk-modal-overlay no-print" id="modalSeparador">
+  <div class="tk-modal tk-modal-separador">
+    <div class="separador-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3 class="tk-modal-title" id="separadorTitulo">Encuentro completado</h3>
+    <p class="tk-modal-text" id="separadorTexto">Guardamos tus respuestas en este navegador.</p>
+    <p class="tk-modal-text separador-aviso">⚠️ Recordá exportar tu progreso vos mismo/a. Nosotros no guardamos copia: si cambiás de navegador o de dispositivo, tus respuestas se pueden perder.</p>
+    <div class="tk-modal-actions">
+      <button class="tk-btn-outline" id="btnSepararExportar" type="button">
+        Exportar mi progreso
+      </button>
+      <button class="tk-btn-cta" id="btnAvanzarSiguiente" type="button">
+        <span id="separadorBtnTexto">Avanzar al siguiente encuentro</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -1585,17 +1651,40 @@ label.tk-label { display: block; margin-bottom: 7px; }
     mostrarEncuentro(n, paginaDestino || 1);
   }
 
+  var siguienteEncuentroPendiente = null;
+
   function completarEncuentro(n) {
     n = parseInt(n, 10);
     state.completados[n] = true;
     persist();
     renderSendero();
-    var siguiente = Math.min(n + 1, TOTAL_ENCUENTROS);
     if (n < TOTAL_ENCUENTROS) {
-      mostrarEncuentro(siguiente, 1);
-      showToast('Encuentro ' + n + ' completo. ¡Encuentro ' + siguiente + ' desbloqueado!');
+      var siguiente = Math.min(n + 1, TOTAL_ENCUENTROS);
+      mostrarSeparador(n, siguiente);
     } else {
       showToast('¡Bitácora completa! Podés descargarla para entregarla.');
+    }
+  }
+
+  // ---------- Separador entre encuentros ----------
+  function mostrarSeparador(completado, siguiente) {
+    siguienteEncuentroPendiente = siguiente;
+    var titulo = $('#separadorTitulo');
+    var texto = $('#separadorTexto');
+    var btnTexto = $('#separadorBtnTexto');
+    if (titulo) titulo.textContent = '¡Encuentro ' + completado + ' completado!';
+    if (texto) texto.textContent = 'Guardamos tus respuestas en este navegador. Cuando quieras, avanzá al Encuentro ' + siguiente + '.';
+    if (btnTexto) btnTexto.textContent = 'Avanzar al Encuentro ' + siguiente;
+    var modal = $('#modalSeparador');
+    if (modal) modal.classList.add('show');
+  }
+
+  function cerrarSeparadorYAvanzar() {
+    var modal = $('#modalSeparador');
+    if (modal) modal.classList.remove('show');
+    if (siguienteEncuentroPendiente) {
+      mostrarEncuentro(siguienteEncuentroPendiente, 1);
+      siguienteEncuentroPendiente = null;
     }
   }
 
@@ -1827,15 +1916,17 @@ label.tk-label { display: block; margin-bottom: 7px; }
       '<p><strong>Siento…</strong> ' + val('e4-pedido2-siento') + '</p>' +
       '<p><strong>Por eso necesito…</strong> ' + val('e4-pedido2-necesito') + '</p>' +
       '<p><strong>Entonces te pido…</strong> ' + val('e4-pedido2-pido') + '</p>');
+    secciones += bloque('Las Tres Preguntas Poderosas de Cierre', preguntasPoderosas('e4'));
     secciones += bloque('A partir de hoy',
-      '<p><strong>¿Qué cosas puedo hacer distinto desde mi liderazgo y desde mi influencia?</strong> ' + val('e4-apartir-hacer') + '</p>' +
-      '<p><strong>¿Qué creo que puedo comprometerme también a realizar diferente en mi día a día?</strong> ' + val('e4-apartir-compromiso') + '</p>');
+      '<p><strong>Este taller me permitió ver algo de mí que no sabía:</strong> ' + val('e4-apartir-1') + '</p>' +
+      '<p><strong>Me llevo herramientas y pistas, pero aún me desafía:</strong> ' + val('e4-apartir-2') + '</p>' +
+      '<p><strong>Luego de este viaje, sé que debo tener una conversación para…:</strong> ' + val('e4-apartir-3') + '</p>' +
+      '<p><strong>Luego de este viaje, sé que necesito…:</strong> ' + val('e4-apartir-4') + '</p>');
     secciones += bloque('Mirada sobre todo el recorrido',
       '<p><strong>¿Qué partes de mí traje que no suelo mostrar?</strong> ' + val('e4-darse-cuenta-2') + '</p>' +
       '<p><strong>¿Qué te desafía aún?</strong> ' + val('e4-desafia') + '</p>' +
       '<p><strong>¿Qué conversaciones necesito tener?</strong> ' + val('e4-conversaciones') + '</p>' +
       '<p><strong>¿Quién elijo ser desde ahora?</strong> ' + val('e4-quien-elijo') + '</p>');
-    secciones += bloque('Las Tres Preguntas Poderosas de Cierre', preguntasPoderosas('e4'));
     secciones += '</section>';
 
     var html = '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">' +
@@ -2039,6 +2130,12 @@ label.tk-label { display: block; margin-bottom: 7px; }
 
     var btnFinalizar = $('#btnFinalizar');
     if (btnFinalizar) btnFinalizar.addEventListener('click', finalizarYDescargar);
+
+    var btnAvanzarSiguiente = $('#btnAvanzarSiguiente');
+    if (btnAvanzarSiguiente) btnAvanzarSiguiente.addEventListener('click', cerrarSeparadorYAvanzar);
+
+    var btnSepararExportar = $('#btnSepararExportar');
+    if (btnSepararExportar) btnSepararExportar.addEventListener('click', exportarProgreso);
 
     window.addEventListener('beforeunload', persist);
 
